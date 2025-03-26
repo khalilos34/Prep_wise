@@ -1,4 +1,4 @@
-// import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
+import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
 import { z } from "zod";
 
 export const mappings = {
@@ -97,62 +97,63 @@ export const mappings = {
   "aws amplify": "amplify",
 };
 
-// export const interviewer: CreateAssistantDTO = {
-//   name: "Interviewer",
-//   firstMessage:
-//     "Hello! Thank you for taking the time to speak with me today. I'm excited to learn more about you and your experience.",
-//   transcriber: {
-//     provider: "deepgram",
-//     model: "nova-2",
-//     language: "en",
-//   },
-//   voice: {
-//     provider: "11labs",
-//     voiceId: "sarah",
-//     stability: 0.4,
-//     similarityBoost: 0.8,
-//     speed: 0.9,
-//     style: 0.5,
-//     useSpeakerBoost: true,
-//   },
-//   model: {
-//     provider: "openai",
-//     model: "gpt-4",
-//     messages: [
-//       {
-//         role: "system",
-//         content: `You are a professional job interviewer conducting a real-time voice interview with a candidate. Your goal is to assess their qualifications, motivation, and fit for the role.
+export const interviewer: CreateAssistantDTO = {
+  name: "Interviewer",
+  firstMessage:
+    "Hello! Thank you for taking the time to speak with me today. I'm excited to learn more about you and your experience.",
+  transcriber: {
+    provider: "deepgram",
+    model: "nova-2",
+    language: "en",
+  },
+  voice: {
+    provider: "11labs",
+    voiceId: "sarah",
+    stability: 0.4,
+    similarityBoost: 0.8,
+    speed: 0.9,
+    style: 0.5,
+    useSpeakerBoost: true,
+  },
+  model: {
+    provider: "openai",
+    model: "gpt-4",
+    messages: [
+      {
+        role: "system",
+        content: `You are a professional job interviewer conducting a real-time voice interview with a candidate. Your goal is to assess their qualifications, motivation, and fit for the role.
 
-// Interview Guidelines:
-// Follow the structured question flow:
-// {{questions}}
+Interview Guidelines:
+Follow the structured question flow:
+{{questions}}
 
-// Engage naturally & react appropriately:
-// Listen actively to responses and acknowledge them before moving forward.
-// Ask brief follow-up questions if a response is vague or requires more detail.
-// Keep the conversation flowing smoothly while maintaining control.
-// Be professional, yet warm and welcoming:
+Engage naturally & react appropriately:
+Listen actively to responses and acknowledge them before moving forward.
+Ask brief follow-up questions if a response is vague or requires more detail.
+Keep the conversation flowing smoothly while maintaining control.
+Be professional, yet warm and welcoming:
 
-// Use official yet friendly language.
-// Keep responses concise and to the point (like in a real voice interview).
-// Avoid robotic phrasing—sound natural and conversational.
-// Answer the candidate’s questions professionally:
+Use official yet friendly language.
+Keep responses concise and to the point (like in a real voice interview).
+Avoid robotic phrasing—sound natural and conversational.
+Answer the candidate’s questions professionally:
 
-// If asked about the role, company, or expectations, provide a clear and relevant answer.
-// If unsure, redirect the candidate to HR for more details.
+If asked about the role, company, or expectations, provide a clear and relevant answer.
+If unsure, redirect the candidate to HR for more details.
 
-// Conclude the interview properly:
-// Thank the candidate for their time.
-// Inform them that the company will reach out soon with feedback.
-// End the conversation on a polite and positive note.
+Conclude the interview properly:
+Thank the candidate for their time.
+Inform them that the company will reach out soon with feedback.
+End the conversation on a polite and positive note.
 
-// - Be sure to be professional and polite.
-// - Keep all your responses short and simple. Use official language, but be kind and welcoming.
-// - This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.`,
-//       },
-//     ],
-//   },
-// };
+
+- Be sure to be professional and polite.
+- Keep all your responses short and simple. Use official language, but be kind and welcoming.
+- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.`,
+      },
+    ],
+  },
+};
 
 export const feedbackSchema = z.object({
   totalScore: z.number(),
@@ -202,6 +203,7 @@ export const interviewCovers = [
   "/tiktok.png",
   "/yahoo.png",
 ];
+
 export const dummyInterviews: Interview[] = [
   {
     id: "1",
@@ -216,46 +218,13 @@ export const dummyInterviews: Interview[] = [
   },
   {
     id: "2",
-    userId: "user2",
-    role: "Backend Developer",
-    type: "Mixed",
-    techstack: ["Node.js", "Express", "MongoDB", "TypeScript"],
-    level: "Mid",
-    questions: ["Explain event-driven architecture."],
-    finalized: true,
-    createdAt: "2024-03-16T12:30:00Z",
-  },
-  {
-    id: "3",
-    userId: "user3",
+    userId: "user1",
     role: "Full Stack Developer",
-    type: "Technical",
-    techstack: ["React", "Node.js", "GraphQL", "PostgreSQL"],
+    type: "Mixed",
+    techstack: ["Node.js", "Express", "MongoDB", "React"],
     level: "Senior",
-    questions: ["What are the benefits of GraphQL?"],
+    questions: ["What is Node.js?"],
     finalized: false,
-    createdAt: "2024-03-17T09:15:00Z",
-  },
-  {
-    id: "4",
-    userId: "user4",
-    role: "Data Scientist",
-    type: "Technical",
-    techstack: ["Python", "TensorFlow", "Pandas", "Scikit-learn"],
-    level: "Mid",
-    questions: ["How does a neural network work?"],
-    finalized: true,
-    createdAt: "2024-03-18T14:45:00Z",
-  },
-  {
-    id: "5",
-    userId: "user5",
-    role: "DevOps Engineer",
-    type: "Technical",
-    techstack: ["Docker", "Kubernetes", "AWS", "Terraform"],
-    level: "Senior",
-    questions: ["What are the key components of Kubernetes?"],
-    finalized: false,
-    createdAt: "2024-03-19T11:20:00Z",
+    createdAt: "2024-03-14T15:30:00Z",
   },
 ];
